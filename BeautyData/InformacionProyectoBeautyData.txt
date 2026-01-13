@@ -1,0 +1,17 @@
+gestión (crud) de inventario de productos de maquillaje
+entre 7 y 10 campos
+
+
+BeautyData
+
+
+
+SKU / Código
+Nombre del Producto
+Categoría
+Descripción
+Precio de Compra
+Precio de Venta
+Stock Actual
+Proveedor
+Estado
