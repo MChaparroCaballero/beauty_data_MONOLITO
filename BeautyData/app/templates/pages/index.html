@@ -27,7 +27,8 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">
-          <img class="logo" src="/static/img/logo_jc.svg" alt="logo_jc_dark" />
+          <i class="bi bi-gem me-2 fs-4"></i>
+          <span style="font-weight: 300;">Beauty</span><span class="fw-bold">Data</span>
         </a>
         <button
           class="navbar-toggler border-0"
@@ -63,23 +64,7 @@
                     >Opciones</a
                   >
                 </li>
-                <li>
-                  <a class="dropdown-item" href=""
-                    >más <i>Opciones</i></a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href=""
-                    >más <i>Opciones</i></a
-                  >
-                </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Opciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Opciones</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="">Opciones</a>
@@ -90,13 +75,13 @@
     </nav>
     <main class="pt-5 bg-gradient-blue-green">
       <div class="container">
-        <h1 class="text-center mb-4">Gestión de Productos</h1>
-        <p class="lead text-center mb-5">
+        <h1 class="text-center text-white mb-4">Gestión de Productos</h1>
+        <p class="lead text-center text-white mb-5">
           Lista de productos registrados en el sistema.
         </p>
       </div>
 <div class="container mb-1">
-  <a href="/productos/nuevo" class="btn btn-primary">
+  <a href="/productos/nuevo" class="btn btn-light fw-bold shadow-sm">
     <i class="bi bi-plus-lg me-2"></i>Agregar Producto
   </a>
       </div>
@@ -134,10 +119,11 @@
         <td>{{ producto.Precio_de_venta }}</td>
         <td>{{ producto.Stock }}</td>
         <td>{{ producto.Proveedor }}</td>
-        <td class="text-center">
+        <td class="text-center text-nowrap">
           <a href="/productos/editar/{{ producto.COD }}" class="btn btn-sm btn-warning me-1" title="Editar Producto">
             <i class="bi bi-pencil-square"></i>
           </a>
+          
           <button class="btn btn-sm btn-danger" data-id="{{ producto.COD }}" title="Eliminar Producto">
             <i class="bi bi-trash"></i>
           </button>
@@ -182,7 +168,7 @@
     ></a>
   </nav>
   <small class="text-white">
-    &copy; 2025 @sulbaranjc. Hecho con fines educativos,
+    &copy; 2026 @MChaparroCaballero. Hecho con fines educativos,
     tomando inspiración de otros sitios.
   </small>
       </div>

@@ -13,7 +13,7 @@ def get_connection():
         user=os.getenv("DB_USER", "beauty_data"),
         password=os.getenv("DB_PASSWORD", "beauty_data"),
         database=os.getenv("DB_NAME", "beauty_data"),
-        port=int(os.getenv("DB_PORT", "3307")),
+        port=int(os.getenv("DB_PORT", "3306")),
         charset="utf8mb4"
     )
 

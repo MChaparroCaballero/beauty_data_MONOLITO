@@ -27,6 +27,9 @@ class ProductoBase(BaseModel):
     proveedor: str
     estado: str = 'Activo'
     
+
+
+    
     @field_validator('nombre', 'categoria', 'descripcion', 'proveedor')
     @classmethod
     def validar_strings(cls, v: str) -> str:
@@ -206,7 +209,7 @@ def post_nuevo_producto(
         
         # Mostramos el formulario con los errores
         return templates.TemplateResponse(
-            "pages/nuevo_cliente.html",
+            "pages/nuevo_producto.html",
             {
                 "request": request,
                 "mensaje": None,
@@ -257,7 +260,7 @@ def get_editar_producto(request: Request, producto_cod: int):
     producto = ProductoDB(**producto_data)
     
     return templates.TemplateResponse(
-        "pages/editar_cliente.html",
+        "pages/editar_producto.html",
         {
             "request": request,
             "producto": producto
@@ -337,7 +340,7 @@ def post_editar_producto(
         
         # Mostramos el formulario con los errores
         return templates.TemplateResponse(
-            "pages/editar_cliente.html",
+            "pages/editar_producto.html",
             {
                 "request": request,
                 "producto": producto_temp,
