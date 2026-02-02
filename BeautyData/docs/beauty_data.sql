@@ -24,7 +24,7 @@ FLUSH PRIVILEGES;
 -- Base de datos: `beauty_data`
 --
 DROP DATABASE IF EXISTS beauty_data;
-CREATE DATABASE beauty_data;
+CREATE DATABASE  beauty_data;
 USE beauty_data;
 -- --------------------------------------------------------
 
@@ -33,15 +33,15 @@ USE beauty_data;
 --
 
 CREATE TABLE IF NOT EXISTS `productos` (
-  `COD` int(11) NOT NULL,
-  `NOMBRE` varchar(200) DEFAULT NULL,
-  `Categoria` varchar(200) DEFAULT NULL,
-  `Descripción` varchar(200) DEFAULT NULL,
-  `Precio_de_compra` decimal(10,2) DEFAULT 0.00,
-  `Precio_de_venta` decimal(10,2) DEFAULT 0.00,
-  `Stock` int(11) DEFAULT 0,
-  `Proveedor` varchar(200) DEFAULT NULL,
-  `Estado` varchar(20) DEFAULT 'Activo'
+  `cod` int(11) NOT NULL,
+  `nombre` varchar(200) DEFAULT NULL,
+  `categoria` varchar(200) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `precio_de_compra` decimal(10,2) DEFAULT 0.00,
+  `precio_de_venta` decimal(10,2) DEFAULT 0.00,
+  `stock` int(11) DEFAULT 0,
+  `proveedor` varchar(200) DEFAULT NULL,
+  `estado` varchar(20) DEFAULT 'Activo'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`COD`);
+  ADD PRIMARY KEY (`cod`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -62,7 +62,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `COD` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
@@ -70,7 +70,7 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 -- Insertar productos de ejemplo
-INSERT INTO `productos` (`NOMBRE`, `Categoria`, `Descripción`, `Precio_de_compra`, `Precio_de_venta`, `Stock`, `Proveedor`, `Estado`) 
+INSERT INTO `productos` (`nombre`, `categoria`, `descripcion`, `precio_de_compra`, `precio_de_venta`, `stock`, `proveedor`, `estado`) 
 VALUES 
 ('Base de Maquillaje Matte Fit', 'Rostro', 'Base de larga duración, acabado mate, 30ml.', 8.50, 15.99, 50, 'Cosméticos Global S.A.', 'Activo'),
 
@@ -79,6 +79,5 @@ VALUES
 ('Máscara de Pestañas Volumen Extremo', 'Ojos', 'Resistente al agua, color negro profundo.', 5.75, 10.50, 0, 'Distribuidora Estilo', 'Agotado'),
 
 ('Paleta de Sombras Nude', 'Ojos', '12 tonos neutros entre mates y brillantes.', 12.00, 25.00, 15, 'Cosméticos Global S.A.', 'Activo'),
-
 
 ('Corrector de Ojeras Light', 'Rostro', 'Cobertura completa con hidratación.', 3.90, 8.50, 25, 'Beauty Supply Co.', 'Activo');
