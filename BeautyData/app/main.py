@@ -21,8 +21,8 @@ class ProductoBase(BaseModel):
     nombre: str
     categoria: str
     descripcion: str
-    precio_compra: float
-    precio_venta: float
+    precio_de_compra: float
+    precio_de_venta: float
     stock: int
     proveedor: str
     estado: str = 'Activo'
@@ -44,7 +44,7 @@ class ProductoBase(BaseModel):
         
         return v
     
-    @field_validator('precio_compra', 'precio_venta')
+    @field_validator('precio_de_compra', 'precio_de_venta')
     @classmethod
     def validar_precios(cls, v: float) -> float:
         """Valida que los precios sean positivos."""
@@ -71,15 +71,15 @@ class ProductoBase(BaseModel):
 
 # Modelo para lectura de BD (sin validaciones estrictas, acepta datos históricos)
 class ProductoDB(BaseModel):
-    COD: int
-    NOMBRE: str
-    Categoria: str
-    Descripción: str
-    Precio_de_compra: float
-    Precio_de_venta: float
-    Stock: int
-    Proveedor: str
-    Estado: str
+    cod: int
+    nombre: str
+    categoria: str
+    descripcion: str
+    precio_de_compra: float
+    precio_de_venta: float
+    stock: int
+    proveedor: str
+    estado: str
 
 
 # Modelo para crear producto (sin COD)
@@ -94,7 +94,7 @@ class ProductoUpdate(ProductoBase):
 
 # Modelo completo de Producto (con COD y validaciones)
 class Producto(ProductoBase):
-    COD: int
+    cod: int
 
 
 app = FastAPI(title="SumaAPI")
@@ -113,15 +113,15 @@ def map_rows_to_productos(rows: List[dict]) -> List[ProductoDB]:
     """
     return [
         ProductoDB(
-            COD=row["COD"],
-            NOMBRE=row["NOMBRE"],
-            Categoria=row["Categoria"],
-            Descripción=row["Descripción"],
-            Precio_de_compra=row["Precio_de_compra"],
-            Precio_de_venta=row["Precio_de_venta"],
-            Stock=row["Stock"],
-            Proveedor=row["Proveedor"],
-            Estado=row["Estado"],
+            cod=row["cod"],
+            nombre=row["nombre"],
+            categoria=row["categoria"],
+            descripcion=row["descripcion"],
+            precio_de_compra=row["precio_de_compra"],
+            precio_de_venta=row["precio_de_venta"],
+            stock=row["stock"],
+            proveedor=row["proveedor"],
+            estado=row["estado"],
         )
         for row in rows
     ]
@@ -165,8 +165,8 @@ def post_nuevo_producto(
     nombre: str = Form(...),
     categoria: str = Form(...),
     descripcion: str = Form(...),
-    precio_compra: float = Form(...),
-    precio_venta: float = Form(...),
+    precio_de_compra: float = Form(...),
+    precio_de_venta: float = Form(...),
     stock: int = Form(...),
     proveedor: str = Form(...),
     estado: str = Form('Activo')
@@ -177,8 +177,8 @@ def post_nuevo_producto(
             nombre=nombre,
             categoria=categoria,
             descripcion=descripcion,
-            precio_compra=precio_compra,
-            precio_venta=precio_venta,
+            precio_de_compra=precio_de_compra,
+            precio_de_venta=precio_de_venta,
             stock=stock,
             proveedor=proveedor,
             estado=estado
@@ -189,8 +189,8 @@ def post_nuevo_producto(
             producto_data.nombre,
             producto_data.categoria,
             producto_data.descripcion,
-            producto_data.precio_compra,
-            producto_data.precio_venta,
+            producto_data.precio_de_compra,
+            producto_data.precio_de_venta,
             producto_data.stock,
             producto_data.proveedor,
             producto_data.estado
@@ -217,8 +217,8 @@ def post_nuevo_producto(
                 "nombre": nombre,
                 "categoria": categoria,
                 "descripcion": descripcion,
-                "precio_compra": precio_compra,
-                "precio_venta": precio_venta,
+                "precio_de_compra": precio_de_compra,
+                "precio_de_venta": precio_de_venta,
                 "stock": stock,
                 "proveedor": proveedor,
                 "estado": estado
@@ -276,8 +276,8 @@ def post_editar_producto(
     nombre: str = Form(...),
     categoria: str = Form(...),
     descripcion: str = Form(...),
-    precio_compra: float = Form(...),
-    precio_venta: float = Form(...),
+    precio_de_compra: float = Form(...),
+    precio_de_venta: float = Form(...),
     stock: int = Form(...),
     proveedor: str = Form(...),
     estado: str = Form(...)
@@ -291,8 +291,8 @@ def post_editar_producto(
             nombre=nombre,
             categoria=categoria,
             descripcion=descripcion,
-            precio_compra=precio_compra,
-            precio_venta=precio_venta,
+            precio_de_compra=precio_de_compra,
+            precio_de_venta=precio_de_venta,
             stock=stock,
             proveedor=proveedor,
             estado=estado
@@ -304,8 +304,8 @@ def post_editar_producto(
             producto_data.nombre,
             producto_data.categoria,
             producto_data.descripcion,
-            producto_data.precio_compra,
-            producto_data.precio_venta,
+            producto_data.precio_de_compra,
+            producto_data.precio_de_venta,
             producto_data.stock,
             producto_data.proveedor,
             producto_data.estado
@@ -327,15 +327,15 @@ def post_editar_producto(
         
         # Creamos un objeto producto temporal para mostrar en el formulario
         producto_temp = ProductoDB(
-            COD=producto_cod,
-            NOMBRE=nombre,
-            Categoria=categoria,
-            Descripción=descripcion,
-            Precio_de_compra=precio_compra,
-            Precio_de_venta=precio_venta,
-            Stock=stock,
-            Proveedor=proveedor,
-            Estado=estado
+            cod=producto_cod,
+            nombre=nombre,
+            categoria=categoria,
+            descripcion=descripcion,
+            precio_de_compra=precio_de_compra,
+            precio_de_venta=precio_de_venta,
+            stock=stock,
+            proveedor=proveedor,
+            estado=estado
         )
         
         # Mostramos el formulario con los errores
