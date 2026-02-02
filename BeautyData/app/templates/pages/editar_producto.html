@@ -96,7 +96,7 @@
                 </div>
                 {% endif %}
                 
-                <form method="POST" action="/productos/editar/{{ producto.COD }}">
+                <form method="POST" action="/productos/editar/{{ producto.cod }}">
                   <div class="mb-3">
                     <label for="nombre" class="form-label">
                       <i class="bi bi-tag me-1"></i>Nombre *
@@ -107,7 +107,7 @@
                       id="nombre"
                       name="nombre"
                       required
-                      value="{{ producto.NOMBRE }}"
+                      value="{{ producto.nombre }}"
                       placeholder="Ingrese el nombre del producto"
                     />
                   </div>
@@ -122,7 +122,7 @@
                       id="categoria"
                       name="categoria"
                       required
-                      value="{{ producto.Categoria }}"
+                      value="{{ producto.categoria }}"
                       placeholder="Ingrese la categoría"
                     />
                   </div>
@@ -138,7 +138,7 @@
                       rows="3"
                       required
                       placeholder="Ingrese la descripción"
-                    >{{ producto.Descripción }}</textarea>
+                    >{{ producto.descripcion }}</textarea>
                   </div>
                   
                   <div class="mb-3">
@@ -150,9 +150,9 @@
                       step="0.01"
                       class="form-control"
                       id="precio_compra"
-                      name="precio_compra"
+                      name="precio_de_compra"
                       required
-                      value="{{ producto.Precio_de_compra }}"
+                      value="{{ producto.precio_de_compra }}"
                       placeholder="0.00"
                     />
                   </div>
@@ -166,9 +166,9 @@
                       step="0.01"
                       class="form-control"
                       id="precio_venta"
-                      name="precio_venta"
+                      name="precio_de_venta"
                       required
-                      value="{{ producto.Precio_de_venta }}"
+                      value="{{ producto.precio_de_venta }}"
                       placeholder="0.00"
                     />
                   </div>
@@ -183,7 +183,7 @@
                       id="stock"
                       name="stock"
                       required
-                      value="{{ producto.Stock }}"
+                      value="{{ producto.stock }}"
                       placeholder="0"
                     />
                   </div>
@@ -198,7 +198,7 @@
                       id="proveedor"
                       name="proveedor"
                       required
-                      value="{{ producto.Proveedor }}"
+                      value="{{ producto.proveedor }}"
                       placeholder="Ingrese el proveedor"
                     />
                   </div>
@@ -208,9 +208,9 @@
                       <i class="bi bi-toggle-on me-1"></i>Estado *
                     </label>
                     <select class="form-control" id="estado" name="estado" required>
-                      <option value="Activo" {% if producto.Estado == 'Activo' %}selected{% endif %}>Activo</option>
-                      <option value="Agotado" {% if producto.Estado == 'Agotado' %}selected{% endif %}>Agotado</option>
-                      <option value="Inactivo" {% if producto.Estado == 'Inactivo' %}selected{% endif %}>Inactivo</option>
+                      <option value="Activo" {% if producto.estado == 'Activo' %}selected{% endif %}>Activo</option>
+                      <option value="Agotado" {% if producto.estado == 'Agotado' %}selected{% endif %}>Agotado</option>
+                      <option value="Inactivo" {% if producto.estado == 'Inactivo' %}selected{% endif %}>Inactivo</option>
                     </select>
                   </div>
                   
